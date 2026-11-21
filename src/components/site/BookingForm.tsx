@@ -93,14 +93,15 @@ function RepairChoice({ repairs }: { repairs: BookingFormProps['repairs'] }) {
          // and add this line at the top of the file, under the other import lines:
         //   import { formatPrice } from '@/lib/format'
          // It reads each repair's own price, from the same record as the price list: nothing is copied.
-
-         const label = repair.description
-  ? `${repair.name} — ${repair.description}`
-  : repair.name
+         
+        const label = repair.name
+        const description = repair.description ? ` — ${repair.description}` : ''
+        
+          
          return (
            <label key={repair.id} className="flex min-h-11 items-center gap-3">
              <input type="checkbox" name="repairs" value={repair.id} defaultChecked={sent.repairs?.includes(String(repair.id))} className="size-5 accent-ink" />
-             {label}
+             {label}{description}
            </label>
          )
        })}
@@ -177,7 +178,6 @@ export function BookingForm(props: BookingFormProps) {
           <Label htmlFor="note">
             Note <span className="font-normal text-ink-soft">(optional)</span>
           </Label>
-          <p id="note-hint" className="text-ink-soft">For example, what is wrong with your bicycle. At most 500 characters.</p>
           <Textarea
             id="note"
             name="note"
