@@ -79,7 +79,7 @@ async function sendBooking(previous: BookingResult | null, formData: FormData): 
 // Then replace the whole line {/* W6: <RepairChoice repairs={props.repairs} /> */} in the form below
 // with <RepairChoice repairs={props.repairs} />. The server side is the two lines the W6 comment in
 // createBooking.ts names (src/tasks/book-slot/createBooking.ts).
- function RepairChoice({ repairs }: { repairs: BookingFormProps['repairs'] }) {
+function RepairChoice({ repairs }: { repairs: BookingFormProps['repairs'] }) {
  //    The repairs ticked in the last send, so they stay ticked when the form comes back.
    const sent = useSentValues()
    return (
